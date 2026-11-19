@@ -1,27 +1,36 @@
 
 #include <stdio.h>
-#include <string.h>
+#include <math.h>
 
-// Define a student structure
-struct student {
-    int ID;
-    char name[10];
-    double grade;
+// Define a point structure
+struct point {
+    int x;
+    int y;
 };
 
 int main(void) {
-    // Declare and initialize a structure variable
-    struct student s1 = {24, "Student", 4.3};
+    struct point p1, p2;
 
-    // Modify structure members
-    s1.ID = 123456;
-    strcpy(s1.name, "Juyeop");
-    s1.grade = 4.2;
+    int xdiff, ydiff;
+    double dist;
 
-    // Print the structure members
-    printf("ID : %d\n", s1.ID);
-    printf("name : %s\n", s1.name);
-    printf("grade : %f\n", s1.grade);
+    // Get the coordinates of the first point
+    printf("input p1 coordinate (x y) : ");
+    scanf("%d %d", &p1.x, &p1.y);
+
+    // Get the coordinates of the second point
+    printf("input p2 coordinate (x y) : ");
+    scanf("%d %d", &p2.x, &p2.y);
+
+    // Calculate the difference between two points
+    xdiff = p1.x - p2.x;
+    ydiff = p1.y - p2.y;
+
+    // Calculate the distance between two points
+    dist = sqrt(xdiff * xdiff + ydiff * ydiff);
+
+    // Print the distance
+    printf("distance : %lf\n", dist);
 
     return 0;
 }
